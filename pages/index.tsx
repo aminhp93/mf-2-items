@@ -1,5 +1,19 @@
+// load content of all files in components folder
+let xxx: any;
+import("../components").then((res) => {
+  console.log(res);
+  xxx = res;
+});
+
 const Page = () => {
-  return <div>Items</div>;
+  if (!xxx) return;
+  return (
+    <div>
+      {Object.keys(xxx).map((i) => {
+        return xxx[i] && xxx[i]();
+      })}
+    </div>
+  );
 };
 
 export default Page;
