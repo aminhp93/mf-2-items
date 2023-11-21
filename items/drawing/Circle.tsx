@@ -1,5 +1,5 @@
-import * as properties from "@/components/property";
-import dynamic from "next/dynamic";
+// import * as properties from "@/components/property";
+// import dynamic from "next/dynamic";
 
 // const RemoteItems = dynamic(
 //   () =>
