@@ -1,14 +1,26 @@
 import * as properties from "@/components/property";
+import dynamic from "next/dynamic";
+
+// const RemoteItems = dynamic(
+//   () =>
+//     import(
+//       // @ts-ignore
+//       "items/index"
+//     ),
+//   {
+//     ssr: false,
+//   }
+// ) as any;
 
 const itemSetup = {
   id: "Circle",
   name: "Circle",
   icon: "radio_button_unchecked",
-  properties: {
-    geometry: properties.geometry({
-      height: null,
-    }),
-  },
+  // properties: {
+  //   geometry: properties.geometry({
+  //     height: null,
+  //   }),
+  // },
 };
 
 const Circle = (props: any) => {
@@ -19,7 +31,8 @@ const Circle = (props: any) => {
     settings = {},
     // dataSource
   } = props;
-  const { width } = geometry.value;
+  // const { width = 100 } = geometry?.value;
+  const width = 100;
   // const { borderThickness } = style;
 
   let borderWidth = 0;

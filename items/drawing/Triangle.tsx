@@ -6,30 +6,7 @@
 // import { getDMFFromDataSource } from "../../lib/utils/dmfTools";
 // import Widget from "../common/Widget";
 
-import * as properties from "@/components/property";
-
-interface TriangleProps {
-  style: {
-    color: string;
-    border: boolean;
-    borderThickness: number;
-    borderColor: string;
-  };
-  geometry: {
-    width: number;
-    height: number;
-  };
-  settings: {
-    opacity: number;
-    dashBarLength: number;
-    dashSpaceLength: number;
-    linecap: "none" | "round" | "square";
-  };
-  dataSource: unknown;
-  matrix: {
-    dmf: unknown;
-  };
-}
+// import * as properties from "@/components/property";
 
 const itemSetup = {
   id: "Triangle",
@@ -37,7 +14,7 @@ const itemSetup = {
   icon: "change_history",
   properties: {
     // transform: properties.transform({ z: 5 }),
-    geometry: properties.geometry({}),
+    // geometry: properties.geometry({}),
     // style: properties.style({
     //   ...Widget.getPlainStyleNoItemStyle(),
     //   border: false,
@@ -73,7 +50,9 @@ const Triangle = (props: any) => {
     //  dataSource
   } = props;
 
-  const { width, height } = geometry.value;
+  // const { width = 100, height = 100 } = geometry?.value;
+  const width = 100;
+  const height = 100;
 
   const borderWidth = style.border ? style.borderThickness : 0;
 
