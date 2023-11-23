@@ -1,51 +1,21 @@
-// import * as properties from "@/components/property";
-// import dynamic from "next/dynamic";
-
-// const RemoteItems = dynamic(
-//   () =>
-//     import(
-//       // @ts-ignore
-//       "items/index"
-//     ),
-//   {
-//     ssr: false,
-//   }
-// ) as any;
+import * as properties from "@/components/property";
 
 const itemSetup = {
   id: "Circle",
   name: "Circle",
   icon: "radio_button_unchecked",
-  // properties: {
-  //   geometry: properties.geometry({
-  //     height: null,
-  //   }),
-  // },
+  properties: {
+    geometry: properties.geometry({
+      height: null,
+    }),
+  },
 };
 
 const Circle = (props: any) => {
   console.log({ props });
-  const {
-    geometry,
-    style = {},
-    settings = {},
-    // dataSource
-  } = props;
-  // const { width = 100 } = geometry?.value;
-  const width = 100;
-  // const { borderThickness } = style;
-
+  const { geometry, style = {}, settings = {} } = props;
+  const { width } = geometry;
   let borderWidth = 0;
-  // if (style.border) {
-  //   borderWidth = borderThickness < width / 2 ? borderThickness : width / 2;
-  // }
-
-  // const currentDMF = getDMFFromDataSource(dataSource, props.matrix.dmf);
-  // const color = currentDMF ? currentDMF.backgroundColor : style.color;
-  // const borderColor = currentDMF
-  //   ? shadeColor(currentDMF.backgroundColor, -0.3)
-  //   : style.borderColor;
-
   const color = style.color;
   const borderColor = style.borderColor;
   return (

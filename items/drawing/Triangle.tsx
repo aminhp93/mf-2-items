@@ -1,67 +1,19 @@
-// import i18next from "i18next";
-// import { Item } from "../../interfaces/Item/Item";
-// import withDataSources from "../../lib/hoc/withDataSources";
-// import * as properties from "../../lib/item/properties";
-// import { shadeColor } from "../../lib/utils/colorTools";
-// import { getDMFFromDataSource } from "../../lib/utils/dmfTools";
-// import Widget from "../common/Widget";
-
-// import * as properties from "@/components/property";
+import * as properties from "@/components/property";
 
 const itemSetup = {
   id: "Triangle",
   name: "Triangle",
   icon: "change_history",
   properties: {
-    // transform: properties.transform({ z: 5 }),
-    // geometry: properties.geometry({}),
-    // style: properties.style({
-    //   ...Widget.getPlainStyleNoItemStyle(),
-    //   border: false,
-    //   borderThickness: 2,
-    // }),
-    // dataSources: properties.group("Data source", {
-    //   value: properties.dataSource(),
-    // }),
-    // matrix: properties.group("Matrix", {
-    //   dmf: properties.dmf("Value"),
-    // }),
-    // settings: properties.group("Settings", {
-    //   opacity: properties.number("Opacity", 100, { min: 0, max: 100 }),
-    //   dashBarLength: properties.number("Bar length", 15, { min: 0, max: 100 }),
-    //   dashSpaceLength: properties.number("Space length", 0, {
-    //     min: 0,
-    //     max: 100,
-    //   }),
-    //   linecap: properties.option("Border style", "round", {
-    //     butt: i18next.t("none"),
-    //     round: i18next.t("round"),
-    //     square: i18next.t("square"),
-    //   }),
-    // }),
+    geometry: properties.geometry({}),
   },
 };
 
 const Triangle = (props: any) => {
-  const {
-    style = {},
-    geometry,
-    settings = {},
-    //  dataSource
-  } = props;
+  const { style = {}, geometry, settings = {} } = props;
 
-  // const { width = 100, height = 100 } = geometry?.value;
-  const width = 100;
-  const height = 100;
-
+  const { width, height } = geometry;
   const borderWidth = style.border ? style.borderThickness : 0;
-
-  // const currentDMF = getDMFFromDataSource(dataSource, props.matrix.dmf);
-  // const color = currentDMF ? currentDMF.backgroundColor : style.color;
-  // const borderColor = currentDMF
-  //   ? shadeColor(currentDMF.backgroundColor, -0.3)
-  //   : style.borderColor;
-
   const color = style.color;
   const borderColor = style.borderColor;
 
@@ -104,9 +56,5 @@ const Triangle = (props: any) => {
 };
 
 Triangle.itemSetup = itemSetup;
-
-// export default withDataSources(Triangle, (props) => ({
-//   dataSource: props.dataSources.value,
-// }));
 
 export default Triangle;

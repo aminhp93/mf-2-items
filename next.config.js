@@ -13,6 +13,7 @@ const nextConfig = {
           filename: "static/chunks/remoteEntry.js",
           exposes: {
             "./index": "./pages/index.tsx",
+            "./listItems": "./items/index.ts",
           },
           shared: {},
           extraOptions: {},

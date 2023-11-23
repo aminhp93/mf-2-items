@@ -1,10 +1,12 @@
 import { cacheItems, getItems, getItem } from "@/utils/cacheItems";
 import { useMemo, useState } from "react";
 import { createAssetsStructure } from "@/utils/createAssetsStructure";
+import "../items/index";
 
 cacheItems(require.context("../items", true, /^(?!.*.test.tsx$).*\.tsx$/));
 
-const Page = () => {
+const Page = (props: any) => {
+  console.log({ props });
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const itemList: any = useMemo(() => {
     return createAssetsStructure(getItems(), {}).flatMap(
