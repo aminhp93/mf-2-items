@@ -1,18 +1,27 @@
-import * as properties from "@/components/property";
+// import * as properties from "@/components/property";
+let remoteListItems: any;
+
+if (typeof window !== "undefined") {
+  remoteListItems = require("property/symbols").default;
+}
 
 const itemSetup = {
   id: "Circle",
   name: "Circle",
   icon: "radio_button_unchecked",
   properties: {
-    geometry: properties.geometry({
-      height: null,
-    }),
+    geometry:
+      remoteListItems &&
+      remoteListItems.property &&
+      remoteListItems.property.geometry({
+        height: 100,
+        width: 100,
+      }),
   },
 };
 
 const Circle = (props: any) => {
-  console.log({ props });
+  console.log("Circle", { props });
   const { geometry, style = {}, settings = {} } = props;
   const { width } = geometry;
   let borderWidth = 0;
