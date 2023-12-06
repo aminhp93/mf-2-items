@@ -1,36 +1,60 @@
 {
-  "name": "items",
+  "name": "webpmp-v5-items-basic",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "e2e": "start-server-and-test dev http://localhost:3002 \"cypress open --e2e\"",
+    "e2e:headless": "start-server-and-test dev http://localhost:3002 \"cypress run --e2e\"",
+    "component": "cypress open --component",
+    "component:headless": "cypress run --component",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@module-federation/nextjs-mf": "^7.0.8",
-    "@mui/icons-material": "^5.14.18",
+    "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.14.18",
-    "@mui/x-data-grid": "^6.18.1",
-    "@mui/x-date-pickers": "^6.18.1",
-    "@mui/x-date-pickers-pro": "^6.18.1",
-    "next": "14.0.2",
+    "@types/uuid": "^9.0.7",
+    "axios": "^1.6.2",
+    "immer": "^10.0.3",
+    "lodash": "^4.17.21",
+    "next": "13.3.1",
+    "qs": "^6.11.2",
     "react": "^18",
     "react-dom": "^18",
-    "sass": "^1.69.5",
-    "webpack": "^5.89.0"
+    "uuid": "^9.0.1",
+    "webpack": "^5.89.0",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.5.3",
+    "@storybook/addon-interactions": "^7.5.3",
+    "@storybook/addon-links": "^7.5.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.3",
+    "@storybook/nextjs": "^7.5.3",
+    "@storybook/react": "^7.5.3",
+    "@storybook/testing-library": "^0.2.2",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^20",
+    "@types/qs": "^6.9.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/webpack-env": "^1.18.4",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
     "autoprefixer": "^10.0.1",
+    "cypress": "^13.6.0",
     "eslint": "^8",
-    "eslint-config-next": "14.0.2",
+    "eslint-config-next": "13.3.1",
+    "eslint-plugin-storybook": "^0.6.15",
+    "storybook": "^7.5.3",
     "typescript": "^5"
+  },
+  "resolutions": {
+    "string-width": "4.2.3"
   }
 }

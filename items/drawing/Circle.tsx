@@ -1,7 +1,9 @@
 // import * as properties from "@/components/property";
+// eslint-disable-next-line
 let remoteListItems: any;
 
 if (typeof window !== "undefined") {
+  // eslint-disable-next-line
   remoteListItems = require("property/symbols").default;
 }
 
@@ -20,11 +22,12 @@ const itemSetup = {
   },
 };
 
+// eslint-disable-next-line
 const Circle = (props: any) => {
-  console.log("Circle", { props });
+  // console.log("Circle", { props });
   const { geometry, style = {}, settings = {} } = props;
   const { width } = geometry;
-  let borderWidth = 0;
+  const borderWidth = 0;
   const color = style.color;
   const borderColor = style.borderColor;
   return (
@@ -50,6 +53,7 @@ const Circle = (props: any) => {
         strokeDasharray={`${
           color === "transparent" ? 0 : settings.dashBarLength
         }, ${color === "transparent" ? 15 : settings.dashSpaceLength}`}
+        // eslint-disable-next-line
         strokeLinecap={settings.linecap as any}
         style={{ transition: `0.35s ease-in-out` }}
       />

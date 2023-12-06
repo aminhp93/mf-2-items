@@ -8,7 +8,7 @@ const itemSetup = {
     geometry: properties.geometry({}),
   },
 };
-
+// eslint-disable-next-line
 const Triangle = (props: any) => {
   const { style = {}, geometry, settings = {} } = props;
 
