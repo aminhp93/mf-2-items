@@ -1,12 +1,6 @@
 /** @type {import('next').NextConfig} */
 const NextFederationPlugin = require("@module-federation/nextjs-mf");
 
-let hostProperty = "http://localhost:3003";
-
-if (process.env.NODE_ENV !== "production") {
-  // hostProperty = "https://property-tau.vercel.app";
-}
-
 const nextConfig = {
   reactStrictMode: true,
   webpack(config, options) {
@@ -16,7 +10,7 @@ const nextConfig = {
         new NextFederationPlugin({
           name: "items",
           remotes: {
-            property: `property@${hostProperty}/_next/static/chunks/remoteEntry.js`,
+            property: `property@${process.env.WEBPMP_V5_PROPERTIES_URL}/_next/static/chunks/remoteEntry.js`,
           },
           filename: "static/chunks/remoteEntry.js",
           exposes: {
