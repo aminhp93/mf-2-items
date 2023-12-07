@@ -1,16 +1,36 @@
-import * as properties from "@/components/property";
+// @ts-expect-error Import remote module
+import remotePropertySymbols from "property/symbols";
 
 const itemSetup = {
   id: "Triangle",
   name: "Triangle",
   icon: "change_history",
   properties: {
-    geometry: properties.geometry({}),
+    geometry: remotePropertySymbols?.property?.geometry({}),
   },
 };
-// eslint-disable-next-line
-const Triangle = (props: any) => {
-  const { style = {}, geometry, settings = {} } = props;
+
+type Props = {
+  geometry: {
+    width: number;
+    height: number;
+  };
+  style: {
+    color: string;
+    borderColor: string;
+    border: boolean;
+    borderThickness: number;
+  };
+  settings: {
+    opacity: number;
+    dashBarLength: number;
+    dashSpaceLength: number;
+    linecap: string;
+  };
+};
+
+const Triangle = (props: Props) => {
+  const { style, geometry, settings } = props;
 
   const { width, height } = geometry;
   const borderWidth = style.border ? style.borderThickness : 0;
@@ -44,9 +64,9 @@ const Triangle = (props: any) => {
         strokeDasharray={`${
           color === "transparent" ? 0 : settings.dashBarLength
         }, ${color === "transparent" ? 15 : settings.dashSpaceLength}`}
-        strokeLinecap={
-          settings.linecap === "none" ? undefined : settings.linecap
-        }
+        // strokeLinecap={
+        //   settings.linecap === "none" ? undefined : settings.linecap
+        // }
         style={{
           transition: `0.35s ease-in-out`,
         }}

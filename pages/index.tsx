@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import { cacheItems, getItems, getItem } from "@/utils/cacheItems";
 import { useMemo, useState } from "react";
 import { createAssetsStructure } from "@/utils/createAssetsStructure";
@@ -7,9 +6,7 @@ import "../items/index";
 
 import { Header } from "aminhp93header";
 
-cacheItems(
-  (require as any).context("../items", true, /^(?!.*.test.tsx$).*\.tsx$/)
-);
+cacheItems(require.context("../items", true, /^(?!.*.test.tsx$).*\.tsx$/));
 
 const Page = (props: any) => {
   console.log({ props });

@@ -45,6 +45,7 @@
     "@types/qs": "^6.9.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/webpack-env": "^1.18.4",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
     "autoprefixer": "^10.0.1",

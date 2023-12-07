@@ -1,31 +1,37 @@
-// import * as properties from "@/components/property";
-// eslint-disable-next-line
-let remoteListItems: any;
-
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line
-  remoteListItems = require("property/symbols").default;
-}
+// @ts-expect-error Import remote module
+import remotePropertySymbols from "property/symbols";
 
 const itemSetup = {
   id: "Circle",
   name: "Circle",
   icon: "radio_button_unchecked",
   properties: {
-    geometry:
-      remoteListItems &&
-      remoteListItems.property &&
-      remoteListItems.property.geometry({
-        height: 100,
-        width: 100,
-      }),
+    geometry: remotePropertySymbols?.property?.geometry({
+      height: 100,
+      width: 100,
+    }),
   },
 };
 
-// eslint-disable-next-line
-const Circle = (props: any) => {
-  // console.log("Circle", { props });
-  const { geometry, style = {}, settings = {} } = props;
+type Props = {
+  geometry: {
+    width: number;
+    height: number;
+  };
+  style: {
+    color: string;
+    borderColor: string;
+  };
+  settings: {
+    opacity: number;
+    dashBarLength: number;
+    dashSpaceLength: number;
+    linecap: string;
+  };
+};
+
+const Circle = (props: Props) => {
+  const { geometry, style, settings } = props;
   const { width } = geometry;
   const borderWidth = 0;
   const color = style.color;
@@ -53,8 +59,7 @@ const Circle = (props: any) => {
         strokeDasharray={`${
           color === "transparent" ? 0 : settings.dashBarLength
         }, ${color === "transparent" ? 15 : settings.dashSpaceLength}`}
-        // eslint-disable-next-line
-        strokeLinecap={settings.linecap as any}
+        // strokeLinecap={settings.linecap}
         style={{ transition: `0.35s ease-in-out` }}
       />
     </svg>
