@@ -5,6 +5,8 @@ import { useMemo, useState } from "react";
 import { createAssetsStructure } from "@/utils/createAssetsStructure";
 import "../items/index";
 
+import { Header } from "aminhp93header";
+
 cacheItems(
   (require as any).context("../items", true, /^(?!.*.test.tsx$).*\.tsx$/)
 );
@@ -24,6 +26,7 @@ const Page = (props: any) => {
   return (
     <div>
       Items
+      <Header />
       {itemList.map((i: any) => {
         return (
           <div onClick={() => setSelectedItem(i)}>
